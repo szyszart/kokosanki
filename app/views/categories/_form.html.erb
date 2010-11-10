@@ -1,0 +1,11 @@
+<% form_for([@category]) do |f| %>
+<%= render "shared/error_messages", :target => @category %>
+<p>
+        <%= f.label :name %> <br />
+        <%= f.text_field :name %>
+</p>
+<p>
+        <%= f.submit 'Post' %>
+</p>
+<% end %>
+
