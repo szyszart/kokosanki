@@ -8,6 +8,10 @@ gem 'rails', '3.0.1'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'devise'
 
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'machinist', '>= 2.0.0.beta2'
+end
 # Use unicorn as the web server
 # gem 'unicorn'
 
