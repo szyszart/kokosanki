@@ -1,5 +1,17 @@
 class CategoriesController < ApplicationController
-	before_filter :authenticate_admin!
+	before_filter :authenticate_admin!, :except => [:show]
+	
+
+	def show
+	    @categories = Category.all	    
+	    @category = Category.find(params[:id])
+
+	    @search = @category.products.search(params[:search])
+    	@products = @search.paginate(:page => params[:page], :per_page => 2)	    
+    	@cart = find_cart
+    	render :layout => 'home'
+	end
+	
 	def edit
 		@category = Category.find(params[:id])				
 	end

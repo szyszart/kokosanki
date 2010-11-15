@@ -28,3 +28,20 @@
 <% end %>
 </table>
 
+<br />
+<h2>Jednostki</h2>
+<%= link_to "New unit", new_unit_path %>
+<table>
+<% @units.each do |c| %>
+<tr>
+	<td><%= c.name %></td>
+	<td><%= c.abbr %></td>	
+        <td>
+		<%= link_to "Edit", edit_unit_path(c) %>
+		<%= button_to 'Delete', c, :method => :delete %>
+	</td>
+</tr>
+<% end %>
+</table>
+
+

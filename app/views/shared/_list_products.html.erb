@@ -1,0 +1,19 @@
+<%= will_paginate products %>
+<% products.each do |c| %>
+<div class="product">
+	<h3>
+	    <%= link_to (h c.name), c %>
+	</h3>
+	<% unless c.picture_url.nil? %>
+	    <%= link_to image_tag(c.picture_url), c %>
+	<% end %>
+	<p><%= h c.description %></p>
+	<p class="product_links">
+	    <% if show_category %>
+	        z kategorii: <%= h c.category.name %> |
+	    <% end %>
+	    <%= link_to "Więcej", c %> |
+	    <%= link_to "Dodaj do koszyka", :controller => "home", :action => "add_to_cart", :id => c, :method => "post" %>
+	</p>
+</div>
+<% end %>

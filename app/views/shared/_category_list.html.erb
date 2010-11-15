@@ -1,0 +1,7 @@
+<h3>Kategorie:</h3>
+<ul>
+    <li><%= link_to "wszystkie", :controller => "home", :action => "index" %></li>
+<% @categories.each do |c| %>
+    <li><%= link_to c.name, :controller => "categories", :action => "show", :id => c %></li>
+<% end %>
+</ul>

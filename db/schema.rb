@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101110123741) do
+ActiveRecord::Schema.define(:version => 20101115175805) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -52,6 +52,9 @@ ActiveRecord::Schema.define(:version => 20101110123741) do
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "picture_url"
+    t.decimal  "price"
+    t.integer  "unit_id"
   end
 
   create_table "units", :force => true do |t|

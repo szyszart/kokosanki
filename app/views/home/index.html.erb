@@ -1,14 +1,5 @@
-<h2>Produkty</h2>
-<table>
-<tr>
-	<td>Nazwa</td>
-	<td>Opis</td>
-</tr>
-<% @products.each do |c| %>
-<tr>
-	<td><%= c.name %></td>
-	<td><%= c.description %></td>
-</tr>
+<% content_for :product_list do %>
+<h2>Dostępne produkty</h2>
+<%= render :partial => "shared/list_products", :locals => { :products => @products, :show_category => true } %>
 <% end %>
-</table>
 

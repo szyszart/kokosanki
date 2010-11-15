@@ -1,0 +1,13 @@
+<% form_for([@unit]) do |f| %>
+<%= render "shared/error_messages", :target => @unit %>
+<p>
+        <%= f.label :name %> <br />
+        <%= f.text_field :name %> <br />
+        <%= f.label "Skrót" %> <br />
+        <%= f.text_field :abbr %>        
+</p>
+<p>
+        <%= f.submit 'Post' %>
+</p>
+<% end %>
+

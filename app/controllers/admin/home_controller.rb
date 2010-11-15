@@ -3,6 +3,7 @@ class Admin::HomeController < ApplicationController
   def index
 	@categories = Category.all
 	@products = Product.all
+	@units = Unit.all
   end
 end
 
