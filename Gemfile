@@ -10,6 +10,10 @@ gem 'devise'
 gem 'will_paginate', '~> 3.0.pre2'
 gem 'meta_search'
 
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'machinist', '>= 2.0.0.beta2'
+end
 # Use unicorn as the web server
 # gem 'unicorn'
 
