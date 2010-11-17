@@ -95,11 +95,8 @@ PLATFORMS
 
 DEPENDENCIES
   devise
-<<<<<<< HEAD
-  meta_search
-=======
   machinist (>= 2.0.0.beta2)
->>>>>>> spec
+  meta_search
   rails (= 3.0.1)
   rspec-rails
   sqlite3-ruby
