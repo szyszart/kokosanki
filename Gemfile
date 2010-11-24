@@ -13,6 +13,9 @@ gem 'meta_search'
 group :test, :development do
   gem 'rspec-rails'
   gem 'machinist', '>= 2.0.0.beta2'
+  gem 'cucumber-rails'
+  gem 'capybara'
+  gem 'launchy'
 end
 # Use unicorn as the web server
 # gem 'unicorn'
