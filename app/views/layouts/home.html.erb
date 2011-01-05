@@ -1,67 +1,115 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
-<html>
-  <head>
-    <meta name="generator"
-          content=
-          "HTML Tidy for Linux/x86 (vers 25 March 2009), see www.w3.org">
-          
-    <meta http-equiv="Content-Type"
-          content="text/html; charset=utf-8">
-    <%= stylesheet_link_tag("main") %>
-    <title>Kokosanka</title>
-  </head>
-  <body>
-    <div id="templateholder">
-      <div id="header">
-        <div id="logo">
-          <h1>
-            <%= link_to image_tag("banner.gif", :border => 0, :alt => "Kokosanka - ugly website, delicious cakes"), root_path %>          
-          </h1>
-        </div>
-        <div id="header_links">
-          <p>
-            <%= link_to "Zaloguj się", admin_root_path %> | 
-	    <%= link_to "Zarejestruj się", "/admins/sign_up" %>
-          </p>
-        </div>
-      </div>
-      <div id="searchbar">
-      <%= form_for @search, :url => root_path, :html => {:method => :get} do |f| %>
-        <%= field_set_tag "Wyszukiwanie produków" do %>
-         <%= f.label "Szukaj:" %>
-         <%= f.text_field :name_or_description_contains %>
-         <%= f.submit "No to lecimy!" %>
-       <% end %>
-      <% end %>           
-      </div>
-      <div id="colcontainer">
-        <div id="categories">
-          <%= render :partial => "shared/category_list" %>
-        </div>
-        <div id="maincol">
-          <%= content_for :product_list %>
-        </div>
-        <div id="others">
-            <% if @cart.empty? %>
-            <h2>Twój koszyk jest pusty.</h2>            
-            <% else %>
-            <h2>Zawartość Twojego koszyka:</h2>
+<!doctype html>
+
+<html lang="pl" class="no-js">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title><%= t :app_title -%></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag("main") %>    
+</head>
+
+<body>
+	<div id="pageWrapper">
+		<div id="header">
+			<div id="logo">
+                <%= link_to "", root_path -%>
+			</div>
+			<div id="topNav">
+				<span class="left"></span>
+				<ul>
+					<li><%= link_to (t :home_page), root_path -%></li>
+					<li class="separator"></li>
+					<li><%= t :your_cart -%></li>
+					<li class="separator"></li>
+					<li><%= t :about_us -%></li>
+					<li class="separator"></li>
+					<li><%= t :contact_us -%></li>
+				</ul>
+				<span class="right"></span>
+			</div>
+		</div>
+
+		<div class="separator"></div>
+
+		<div id="banner"></div>
+
+		<div class="separator"></div>
+
+        <div id="mainSidebar">
+    		<div id="sidebar">
+	    		<div class="bar">
+	    			<span class="left"></span>
+	    			<h2><%= t :categories -%></h2>
+	    			<span class="right"></span>
+	    		</div>
+                <%= render :partial => "shared/category_list" %>
+	    	</div>
+
+	    	<div id="sidebar">
+	    		<div class="bar">
+	    			<span class="left"></span>
+	    			<h2><%= t :cart -%></h2>
+	    			<span class="right"></span>
+	    		</div>	    		
+
+                <div id="cart_preview">
+    	        <% if @cart.empty? %>
+                <p><%= t :cart_is_empty -%></p>            
+                <% else %>
+                <p><%= t :cart_content -%></p>
             
-            <ul>
-                <% for item in @cart.items %>
-                    <li><%= item.quantity %> &times; <%=h item.product.name %></li>
-                <% end %>
-            </ul>
-            <%= link_to "Opróżnij koszyk", :controller => "home", :action => "empty_cart" %>
-            <% end %>
+                <ul>
+                    <% for item in @cart.items %>
+                        <li><%= item.quantity %> <%= item.product.unit.abbr -%> &times; <%=h item.product.name %> = <span class="price"><%= item.price -%> zł</span></li>
+                    <% end %>
+                    <li class="total">
+                        <%= t :total_price -%> <span class="price"><%= @cart.total -%> zł</span>
+                    </li>
+                </ul>
+                <p>
+                  <%= link_to (t :empty_cart), :controller => "home", :action => "empty_cart" %> |
+                  <%= t :checkout -%>
+                </p>
+                <% end %>	    
+                </div>
+	    	</div>
+	                
         </div>
-       </div>
-      <div id="footer">
-        <p>
-          We know that it sucks.
-          <%= link_to "Panel administratora", admin_root_path %>
-        </p>
-      </div>
-    </div>
-  </body>
+
+		<div id="mainContent">
+
+			<div class="bar">
+				<span class="left"></span>
+                <%= form_for @search, :url => root_path, :html => { :method => :get, :id => "searchForm" } do |f| %>
+                  <%= f.label :name_or_description_contains, (t :find) %>
+                  <%= f.text_field :name_or_description_contains %>
+                  <%= f.submit (t :find_products) %>
+                  <%= link_to (t :advanced_search), root_path -%>
+                <% end %>           
+				<span class="right"></span>
+			</div>
+
+			<div class="featured">
+                <%= content_for :product_list %>
+			</div>
+
+			<div class="separator"></div>
+
+			<div class="post">
+				<h2><%= t :welcome_header -%></h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt ultrices turpis sed ornare. Ut purus mauris, pharetra vel congue non, interdum et metus. Sed placerat orci in ligula vestibulum quis pharetra nunc hendrerit. Maecenas vel urna a quam laoreet pharetra. Aenean mauris purus, tristique id malesuada nec, vestibulum congue nunc. Phasellus a sapien ante. Phasellus sagittis odio at lectus rutrum feugiat. Mauris non egestas lorem. Nam fringilla tempor blandit. Suspendisse lacinia turpis ac mauris pretium sed malesuada lorem euismod. Curabitur id enim ut lectus sollicitudin bibendum eu ut risus. Cras ornare, ligula eu convallis suscipit, ligula orci elementum mi, vitae semper leo neque et lacus. Vestibulum quis dolor lectus. Sed porttitor enim nec leo volutpat vehicula. Mauris lacinia pulvinar consectetur. Phasellus dictum ultrices erat nec varius. In hac habitasse platea dictumst.</p>
+			</div>
+		</div>
+
+		<div class="separator"></div>
+
+		<div id="footer">
+			<p><em>Copyright &copy; 2010 kokosanka.pl</em></p>
+		</div>
+	</div>
+</body>
+
 </html>

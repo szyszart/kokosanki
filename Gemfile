@@ -24,7 +24,9 @@ end
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug'
+gem 'ruby-debug'
+
+gem 'dynamic_form'
 
 # Bundle the extra gems:
 # gem 'bj'

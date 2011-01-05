@@ -1,0 +1,271 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+pl:
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      short: "%d %b"
+      long: "%B %d, %Y"
+
+    day_names: [niedziela, poniedziałek, wtorek, środa, czwartek, piątek, sobota]
+    abbr_day_names: [nie, pon, wto, śro, czw, pia, sob]
+
+    month_names: [~, styczeń, luty, marzec, kwiecień, maj, czerwiec, lipiec, sierpień, wrzesień, październik, listopad, grudzień]
+    abbr_month_names: [~, sty, lut, mar, kwi, maj, cze, lip, sie, wrz, paź, lis, gru]
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+    am: "przed południem"
+    pm: "po południu"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " i "
+      last_word_connector: " oraz "
+
+    select:
+      prompt: "Proszę wybrać"
+
+  number:
+    format:
+      separator: ","
+      delimiter: " "
+      precision: 3
+      significant: false
+      strip_insignificant_zeros: false
+
+    currency:
+      format:
+        format: "%u %n"
+        unit: "PLN"
+        separator: ","
+        delimiter: " "
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: true
+
+    percentage:
+      format:
+        delimiter: ""
+
+    precision:
+      format:
+        delimiter: ""
+
+    human:
+      format:
+        delimiter: ""
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "bajt"
+            other: "bajty"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: Tysiąc
+          million: Milion
+          billion: Miliard
+          trillion: Trylion
+          quadrillion: Kwadrylion
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "pół minuty"
+      less_than_x_seconds:
+        one: "mniej niż sekundę"
+        few: "mniej niż %{count} sekundy"
+        other: "mniej niż %{count} sekund"
+      x_seconds:
+        one: "1 sekunda"
+        few: "%{count} sekundy"
+        other: "%{count} sekund"
+      less_than_x_minutes:
+        one: "mniej niż minutę"
+        few: "mniej niż %{count} minuty"
+        other: "mniej niż %{count} minut"
+      x_minutes:
+        one: "1 minuta"
+        few: "%{count} minuty"
+        other: "%{count} minut"
+      about_x_hours:
+        one: "około godziny"
+        few: "około %{count} godziny"
+        other: "około %{count} godzin"
+      x_days:
+        one: "1 dzień"
+        few: "%{count} dni"
+        other: "%{count} dni"
+      about_x_months:
+        one: "około miesiąca"
+        few: "około %{count} miesiące"
+        other: "około %{count} miesięcy"
+      x_months:
+        one: "1 miesiąc"
+        few: "%{count} miesiące"
+        other: "%{count} miesięcy"
+      about_x_years:
+        one: "około rok"
+        few: "około %{count} lata"
+        other: "około %{count} lat"
+      over_x_years:
+        one: "ponad rok"
+        few: "ponad %{count} lata"
+        other: "ponad %{count} lat"
+      almost_x_years:
+        one: "prawie rok"
+        few: "prawie %{count} lata"
+        other: "prawie %{count} lat"
+    prompts:
+      year: "Rok"
+      month: "Miesiąc"
+      day: "Dzień"
+      hour: "Godzina"
+      minute: "Minuta"
+      second: "Sekundy"
+
+  helpers:
+    select:
+      prompt: "Proszę wybrać"
+
+    submit:
+      create: 'Utwórz %{model}'
+      update: 'Aktualizuj %{model}'
+      submit: 'Zapisz %{model}'
+
+  errors:
+    format: "Pole \"%{attribute}\" %{message}."
+
+    template:
+      header:
+        one: "Obiekt \"%{model}\" nie został zachowany z powodu jednego błędu."
+        other: "Obiekt \"%{model}\" nie został zachowany z powodu %{count} błędów."
+      body: "Błędy dotyczą pól wyszczególnionych poniżej."
+
+    messages: &errors_messages
+      inclusion: "nie znajduje się na liście dopuszczalnych wartości"
+      exclusion: "jest zarezerwowane"
+      invalid: "jest nieprawidłowe"
+      confirmation: "nie zgadza się z potwierdzeniem"
+      accepted: "musi zostać zaakceptowane"
+      empty: "nie może być puste"
+      blank: "nie może być puste"
+      too_long: "jest za długie (maksymalnie %{count} znaków)"
+      too_short: "jest za krótkie (przynajmniej %{count} znaków)"
+      wrong_length: "ma nieprawidłową długość (powinna wynosić %{count} znaków)"
+      not_a_number: "nie jest liczbą"
+      not_an_integer: "musi być liczbą całkowitą"
+      greater_than: "musi być większe od %{count}"
+      greater_than_or_equal_to: "musi być większe lub równe %{count}"
+      equal_to: "musi być równe %{count}"
+      less_than: "musi być mniejsze od %{count}"
+      less_than_or_equal_to: "musi być mniejsze lub równe %{count}"
+      odd: "musi być nieparzyste"
+      even: "musi być parzyste"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "Obiekt \"%{model}\" nie został zachowany z powodu jednego błędu."
+          other: "Obiekt \"%{model}\" nie został zachowany z powodu %{count} błędów."
+        body: "Błędy dotyczą następujących pól:"
+
+      messages:
+        taken: "zostało już zajęte"
+        record_invalid: "Negatywne sprawdzenie poprawności: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "Pole %{attribute}%{message}."
+
+    models:
+      admin: administrator
+      cart: koszyk
+      cart_item: "przedmiot z koszyka"
+      category: kategoria
+      product: produkt
+      unit: jednostka
+      user: użytkownik
+      offer: wariant
+   
+    attributes:
+      product:
+        name: "Nazwa"
+        description: "Opis"
+        price: "Cena"
+        picture_url: "Adres zdjęcia"
+        category_id: "Kategoria"
+        unit_id: "Jednostka"
+      category:
+        name: "Nazwa"
+      unit:
+        name: "Nazwa"
+        abbr: "Skrót"
+      admin:
+        email: "Adres e-mail"
+        password: "Hasło"
+        password_confirmation: "Potwierdź hasło"
+        remember_me: "Pamiętaj mnie"
+        
+  hello: "Witaj, świecie!"
+  post: "Zachowaj"
+  edit_category: "Edytuj kategorię"
+  new_category: "Nowa kategoria"
+  category_name: "Kategoria "
+  edit_product: "Edytuj produkt"
+  new_product: "Nowy produkt"
+  edit_unit: "Edytuj jednostkę"
+  new_unit: "Nowa jednostka"
+  all_categories: "wszystkie" 
+  from_category: "z kategorii: "
+  more: "Więcej"
+  add_to_cart: "Dodaj do koszyka"
+  add_to_cart_header: "Dodawanie do koszyka"
+  products: "Produkty"
+  categories: "Kategorie"
+  units: "Jednostki"
+  options: "Opcje"
+  edit: "Edytuj"
+  delete: "Usuń"
+  admin_panel: "Panel admina"
+  sign_out: "Wyloguj"
+  app_title: "Cukiernia Kokosanka"
+  home_page: "Strona główna"
+  your_cart: "Twój koszyk"
+  about_us: "O nas"
+  contact_us: "Kontakt"
+  cart: "Koszyk"
+  cart_is_empty: "Twój koszyk jest pusty."
+  cart_content: "Zawartość Twojego koszyka:"
+  empty_cart: "Opróżnij koszyk"
+  find_products: "Znajdź coś pysznego"
+  advanced_search: "Wyszukiwanie zaawansowane"
+  find: "Wyszukaj"
+  welcome_header: "Witamy na stronie naszej cukierni"
+  previous: "Poprzednia"
+  next: "Następna"
+  page_product_count: "Liczba produktów na stronie: "
+  sign_in: "Zaloguj się"
+  sign_up: "Zarejestruj się"
+  forgot_password: "Zapomniałeś hasła?"
+  send_me_reset_password_info: "Wyślij mi instrukcję zmiany hasła"
+  total_price: "Łącznie:"
+  checkout: "Przejdź do kasy"

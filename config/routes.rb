@@ -9,6 +9,7 @@ NewKokosanki::Application.routes.draw do
 
   match 'products/:id/add_to_card' => 'home#add_to_cart'
   match 'empty_cart' => 'home#empty_cart'
+  match 'checkout' => 'home#checkout'
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

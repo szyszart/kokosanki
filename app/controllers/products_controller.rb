@@ -29,6 +29,9 @@ class ProductsController < ApplicationController
 
 	def create
 		@product = Product.new(params[:product])
+    	@categories = Category.all		
+   		@units = Unit.all
+
         if @product.save
             redirect_to :controller => "admin/home"
         else

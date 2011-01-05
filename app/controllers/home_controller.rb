@@ -1,7 +1,9 @@
 class HomeController < ApplicationController
 	def index
 	    @search = Product.search(params[:search])
-		@products = @search.paginate(:page => params[:page], :per_page => 2)
+        @per_page = params[:per_page] || Product.per_page
+        @products = @search.paginate(:per_page => @per_page, :page => params[:page])
+		
 		@categories = Category.all
 		@cart = find_cart
 	end
@@ -18,5 +20,7 @@ class HomeController < ApplicationController
 	    redirect_to root_path
     end	
 	
+	def checkout
+	end
 end
 

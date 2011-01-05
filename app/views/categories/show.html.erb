@@ -1,4 +1,4 @@
 <% content_for :product_list do %>
-<h3>Kategoria <%= h @category.name %></h3>
+<h3><%= t :category_name -%>&quot;<%= h @category.name %>&quot;</h3>
 <%= render :partial => "shared/list_products", :locals => { :products => @products, :show_category => false } %>
 <% end %>
